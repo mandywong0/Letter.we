@@ -1,0 +1,16 @@
+2025-08-07 15:10:39.362 PDT [67803] LOG:  starting PostgreSQL 14.18 (Homebrew) on aarch64-apple-darwin24.4.0, compiled by Apple clang version 17.0.0 (clang-1700.0.13.3), 64-bit
+2025-08-07 15:10:39.363 PDT [67803] LOG:  listening on IPv6 address "::1", port 5432
+2025-08-07 15:10:39.364 PDT [67803] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-08-07 15:10:39.364 PDT [67803] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2025-08-07 15:10:39.366 PDT [67804] LOG:  database system was shut down at 2025-08-07 15:10:22 PDT
+2025-08-07 15:10:39.369 PDT [67803] LOG:  database system is ready to accept connections
+2025-08-07 15:12:42.964 PDT [67878] ERROR:  role "mandywong" already exists
+2025-08-07 15:12:42.964 PDT [67878] STATEMENT:  CREATE USER mandywong WITH PASSWORD '071202';
+2025-08-08 14:48:53.579 PDT [81438] FATAL:  role "postgres" does not exist
+2025-08-08 14:49:16.576 PDT [81877] FATAL:  role "postgres" does not exist
+2025-08-08 14:49:46.475 PDT [81882] FATAL:  database "mandywong" does not exist
+2025-08-08 14:50:00.661 PDT [81885] FATAL:  database "mandywong" does not exist
+2025-08-08 14:50:26.573 PDT [81889] FATAL:  database "mandywong" does not exist
+2025-08-08 14:51:38.804 PDT [82330] FATAL:  database "mandywong" does not exist
+2025-08-08 14:52:04.902 PDT [82350] FATAL:  database "mandywong" does not exist
+2025-08-08 14:52:41.020 PDT [82354] FATAL:  database "dailyletters_d" does not exist
