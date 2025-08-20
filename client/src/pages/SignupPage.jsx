@@ -24,7 +24,7 @@ function SignupPage() {
       const data = await response.json();
 
       if (response.ok) {
-        console.log('Signup successful!', data);
+        console.log('Signup successful! Redirecting to log in', data);
         // Save token to localStorage
         localStorage.setItem('token', data.token);
         // Redirect and show a success message

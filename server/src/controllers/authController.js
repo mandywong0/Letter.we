@@ -35,11 +35,7 @@ const registerUser = async (req, res) => {
       email
     });
 
-    //generate a JWT
-    const token = generateAccessToken(newUser.id);
-
     res.json({ 
-      token,
       user: {
         username: newUser.username,
       }
