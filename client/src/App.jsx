@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import ProtectedRoute from './components/ProtectedRoute'
 import HomePage from './pages/HomePage';
 import ComposePage from './pages/ComposePage';
+import InboxPage from './pages/InboxPage';
 
 function App() {
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/" element={<ProtectedRoute><HomePage /></ProtectedRoute>}/>
       <Route path="/compose" element={<ProtectedRoute><ComposePage /></ProtectedRoute>}/>
+      <Route path="/inbox" element={<ProtectedRoute><InboxPage /></ProtectedRoute>}/>
     </Routes>
   );
 }
