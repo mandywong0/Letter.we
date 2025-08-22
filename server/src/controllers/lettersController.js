@@ -15,6 +15,8 @@ const mailLetter = async (req, res) => {
         content
     });
 
+    res.status(201).json(letter);
+
   } catch {
     console.error(error);
     res.status(400).json({ error: error.message });

@@ -3,6 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const sequelize = require('./src/db');
 const authRoutes = require('./src/routes/authRoutes');
+const lettersRoutes = require('./src/routes/lettersRoutes');
 
 dotenv.config();
 const app = express();
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(authRoutes);
+app.use('/letters', lettersRoutes);
 
 sequelize.sync()
   .then(() => {

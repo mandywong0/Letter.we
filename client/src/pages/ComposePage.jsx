@@ -3,16 +3,30 @@ import { API_URL } from "../config";
 import { useNavigate, Link } from 'react-router-dom';
 
 function ComposePage() {
+  const navigate = useNavigate();
   const [content, setContent] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch (`${API_URL}/`, {
-        method: 
-
+      const response = await fetch (`${API_URL}/letters`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content }),
       });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setContent('');
+        navigate("/home");
+      } else {
+        console.error('', data.error);
+        setError(data.error);
+      }
 
     } catch (error) {
       console.error('Network error:', error);
