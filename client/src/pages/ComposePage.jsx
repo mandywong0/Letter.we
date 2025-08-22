@@ -1,0 +1,37 @@
+import React, { useState } from 'react';
+import { API_URL } from "../config";
+import { useNavigate, Link } from 'react-router-dom';
+
+function ComposePage() {
+  const [content, setContent] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch (`${API_URL}/`, {
+        method: 
+
+      });
+
+    } catch (error) {
+      console.error('Network error:', error);
+    }
+
+  };
+  
+  return (
+    <div>
+      <h2>Compose a letter</h2>
+      <form onSubmit={handleSubmit}>
+        <textarea 
+          value={content} 
+          onChange={e => setContent(e.target.value)} />
+        <button type="submit">Mail</button>
+      </form>
+    </div>
+
+  );
+}
+
+export default ComposePage;
