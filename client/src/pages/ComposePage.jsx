@@ -5,6 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 function ComposePage() {
   const navigate = useNavigate();
   const [content, setContent] = useState('');
+  const token = localStorage.getItem('token');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -14,6 +15,7 @@ function ComposePage() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({ content }),
       });
@@ -22,10 +24,9 @@ function ComposePage() {
 
       if (response.ok) {
         setContent('');
-        navigate("/home");
+        navigate("/");
       } else {
         console.error('', data.error);
-        setError(data.error);
       }
 
     } catch (error) {

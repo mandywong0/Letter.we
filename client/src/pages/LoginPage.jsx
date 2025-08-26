@@ -27,7 +27,7 @@ function LoginPage() {
         // Save token to localStorage
         localStorage.setItem('token', data.token);
         // Redirect to home 
-        navigate('/home');
+        navigate('/');
       } else {
         console.error('Login failed:', data.error);
         setError(data.error);

@@ -4,7 +4,8 @@ const Letter = require('../models/Letter');
 const mailLetter = async (req, res) => {
   try {
 
-    let { content } = req.body.trim();
+    let { content } = req.body;
+    content = content.trim();
     const senderID = req.user.id;
     const recipientID = 1; //change to paired partner later
 
@@ -34,13 +35,16 @@ const mailLetter = async (req, res) => {
 const getLetters = async (req, res) => {
   try {
     const userID = req.user.id;
-    const letters = await Letter.find({ recipientId: userID }).sort({ sentAt: -1 });
+    const letters = await Letter.findAll({ 
+      where: { recipient_id: userID },
+      order: [['sent_at', 'DESC']]
+    });
 
-    res.json({ success: true, letters });
+    res.json({ letters });
 
-  } catch {
+  } catch (error) {
     console.error(error);
-    res.status(400).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 };
 
