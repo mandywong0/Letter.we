@@ -14,6 +14,11 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true
+  },
+  partner_id: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    unique: true
   }
 });
 

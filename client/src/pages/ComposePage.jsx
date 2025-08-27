@@ -38,6 +38,7 @@ function ComposePage() {
   return (
     <div>
       <h2>Compose a letter</h2>
+      <p>Dear {},</p>
       <form onSubmit={handleSubmit}>
         <textarea 
           value={content} 
