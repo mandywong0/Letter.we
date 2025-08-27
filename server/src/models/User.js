@@ -26,4 +26,6 @@ const User = sequelize.define('User', {
 // User.hasMany(Letter, { foreignKey: 'senderId' });
 // User.hasMany(Letter, { foreignKey: 'recipientId' });
 
+User.belongsTo(User, { as: 'partner', foreignKey: 'partner_id' }); //can query a user along with their partner 
+
 module.exports = User;
