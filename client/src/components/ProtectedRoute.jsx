@@ -5,5 +5,16 @@ export default function ProtectedRoute({ children }) {
   if (!token) {
     return <Navigate to="/login" replace />;
   }
+
+  let isExpired = true;
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    isExpired = payload.exp * 1000 < Date.now();
+  } catch (err) {
+    isExpired = true;
+  }
+  
+  if (isExpired) return <Navigate to="/login" replace />;
+
   return children;
 }
