@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const sequelize = require('./src/db');
 const authRoutes = require('./src/routes/authRoutes');
 const lettersRoutes = require('./src/routes/lettersRoutes');
+const pairingRoutes = require('./src/routes/pairingRoutes');
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 
 app.use(authRoutes);
 app.use('/letters', lettersRoutes);
+app.use('/pairing-code', pairingRoutes);
 
 sequelize.sync()
   .then(() => {

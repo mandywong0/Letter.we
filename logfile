@@ -19,3 +19,4 @@
 2025-08-27 11:37:59.729 PDT [71689] STATEMENT:  SELECT "id", "username", "password", "email", "partner_id", "createdAt", "updatedAt" FROM "Users" AS "User" WHERE "User"."email" = 'mandytest@email.com';
 2025-08-27 11:39:17.338 PDT [72004] ERROR:  column "partner_id" does not exist at character 47
 2025-08-27 11:39:17.338 PDT [72004] STATEMENT:  SELECT "id", "username", "password", "email", "partner_id", "createdAt", "updatedAt" FROM "Users" AS "User" WHERE "User"."email" = 'mandytest@email.com';
+2025-08-27 16:19:09.991 PDT [93136] LOG:  could not receive data from client: Connection reset by peer
