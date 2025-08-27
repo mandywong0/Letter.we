@@ -15,3 +15,7 @@
 2025-08-08 14:52:04.902 PDT [82350] FATAL:  database "mandywong" does not exist
 2025-08-08 14:52:41.020 PDT [82354] FATAL:  database "dailyletters_d" does not exist
 2025-08-21 15:53:37.853 PDT [21046] LOG:  could not receive data from client: Connection reset by peer
+2025-08-27 11:37:59.729 PDT [71689] ERROR:  column "partner_id" does not exist at character 47
+2025-08-27 11:37:59.729 PDT [71689] STATEMENT:  SELECT "id", "username", "password", "email", "partner_id", "createdAt", "updatedAt" FROM "Users" AS "User" WHERE "User"."email" = 'mandytest@email.com';
+2025-08-27 11:39:17.338 PDT [72004] ERROR:  column "partner_id" does not exist at character 47
+2025-08-27 11:39:17.338 PDT [72004] STATEMENT:  SELECT "id", "username", "password", "email", "partner_id", "createdAt", "updatedAt" FROM "Users" AS "User" WHERE "User"."email" = 'mandytest@email.com';

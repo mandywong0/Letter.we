@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { API_URL } from "../config";
 import { useNavigate, Link } from 'react-router-dom';
 
-function LoginPage() {
+function PairingPage() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (event) => {
@@ -30,7 +28,7 @@ function LoginPage() {
         if (data.user.partner_id) {
           navigate('/');
         } else {
-          navigate('/pairing');
+          
         }
       } else {
         console.error('Login failed:', data.error);
@@ -43,29 +41,12 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      
+    <div>   
       {error && <p>{error}</p>}
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Log in</button>
-      </form>
-      <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
     </div>
   );
 
 }
 
-export default LoginPage;
+export default PairingPage;

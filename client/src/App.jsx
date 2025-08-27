@@ -5,6 +5,7 @@ import './App.css';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import ProtectedRoute from './components/ProtectedRoute'
+import PairingPage from './pages/PairingPage';
 import HomePage from './pages/HomePage';
 import ComposePage from './pages/ComposePage';
 import InboxPage from './pages/InboxPage';
@@ -25,6 +26,7 @@ function App() {
     <Routes>
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/pairing" element={<ProtectedRoute><PairingPage /></ProtectedRoute>}/>
       <Route path="/" element={<ProtectedRoute><HomePage /></ProtectedRoute>}/>
       <Route path="/compose" element={<ProtectedRoute><ComposePage /></ProtectedRoute>}/>
       <Route path="/inbox" element={<ProtectedRoute><InboxPage /></ProtectedRoute>}/>
