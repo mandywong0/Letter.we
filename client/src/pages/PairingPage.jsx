@@ -1,48 +1,45 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { API_URL } from "../config";
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from "react-router-dom";
 
 function PairingPage() {
   const navigate = useNavigate();
   const [error, setError] = useState('');
+  const [code, setCode] = useState('');
+  const [expiresAt, setExpiresAt] = useState('');
+  const token = localStorage.getItem("token");
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setError('');
+  const fetchCode = async () => {
     try {
-      const response = await fetch(`${API_URL}/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
+      const response = await fetch(`${API_URL}/pairing-code`, {
+        method: "POST",
+        headers: {"Authorization": `Bearer ${token}`}
       });
-
       const data = await response.json();
-
       if (response.ok) {
-        console.log('Login successful!', data);
-        // Save token to localStorage
-        localStorage.setItem('token', data.token);
-        // Redirect to home IF paired if not, redirect to pairing page
-        if (data.user.partner_id) {
-          navigate('/');
-        } else {
-          
-        }
+        setCode(data.code)
+        setExpiresAt(data.expires_at)
       } else {
-        console.error('Login failed:', data.error);
-        setError(data.error);
+        console.error("Fetch failed:", data.error);
       }
-
     } catch (error) {
       console.error('Network error:', error);
+      setError(error);
     }
   };
+
+  useEffect(() => {
+    fetchCode();
+  }, []);
 
   return (
     <div>   
       {error && <p>{error}</p>}
+      <h1>Link with partner</h1>
+      <p>Enter your partner's pairing code or have your partner enter yours to begin using the app!</p>
+      <h3>Your Pairing Code:</h3>
+      <h3>{code}</h3>
+      <p>This code expires in {expiresAt}</p>
 
     </div>
   );

@@ -19,6 +19,15 @@ const User = sequelize.define('User', {
     type: DataTypes.INTEGER,
     allowNull: true,
     unique: true
+  },
+  pairing_code: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    unique: true,
+  },
+  pairing_code_expires_at: {
+    type: DataTypes.DATE,
+    allowNull: true,
   }
 });
 

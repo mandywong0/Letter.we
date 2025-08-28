@@ -1,27 +1,28 @@
 const crypto = require("crypto"); 
+const User = require('../models/User');
 
 const generateCode = async (req, res) => {
-  let code;
-  let newCode;
-  let success = false;
+  try {
+    const code = crypto.randomInt(100000, 1000000).toString();
+    const expires_at = new Date(Date.now() + 15 * 60 * 1000);
 
-  for (let tries = 0; tries < 5 && !success; tries++) {
-    code = crypto.randomInt(100000, 1000000).toString();
-    try {
-      newCode = await PairingCode.create({
-        code,
-        user_id: req.user.id,
-        expires_at: new Date(Date.now() + 15 * 60 * 1000),
-      });
-      success = true;
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  if (!success) {
+    await User.update(
+      { pairing_code: code, pairing_code_expires_at: expires_at },
+      { where: { id: req.user.id } }
+    );
+
+    return res.status(201).json({ code, expires_at });
+
+  } catch (error) {
+
+    console.error("Sequelize Error:", {
+      name: error.name,
+      message: error.message,
+      errors: error.errors || [],
+    });
+
     return res.status(500).json({ error: "Failed to generate code" });
   }
-  return res.status(201).json({ code, expires_at });
 };
 
 module.exports = { generateCode };

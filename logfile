@@ -20,3 +20,72 @@
 2025-08-27 11:39:17.338 PDT [72004] ERROR:  column "partner_id" does not exist at character 47
 2025-08-27 11:39:17.338 PDT [72004] STATEMENT:  SELECT "id", "username", "password", "email", "partner_id", "createdAt", "updatedAt" FROM "Users" AS "User" WHERE "User"."email" = 'mandytest@email.com';
 2025-08-27 16:19:09.991 PDT [93136] LOG:  could not receive data from client: Connection reset by peer
+2025-08-28 12:13:57.932 PDT [1092] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:13:57.932 PDT [1092] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:13:57.932 PDT [1092] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:13:57.943 PDT [1092] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:13:57.943 PDT [1092] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:13:57.943 PDT [1092] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:13:57.946 PDT [1092] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:13:57.946 PDT [1092] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:13:57.946 PDT [1092] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:13:57.950 PDT [1092] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:13:57.950 PDT [1092] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:13:57.950 PDT [1092] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:13:57.951 PDT [1092] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:13:57.951 PDT [1092] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:13:57.951 PDT [1092] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:15:19.725 PDT [99904] ERROR:  syntax error at or near "/" at character 1
+2025-08-28 12:15:19.725 PDT [99904] STATEMENT:  /db
+	/dt
+	SELECT * FROM PairingCodes
+	;
+2025-08-28 12:21:33.002 PDT [1236] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:21:33.002 PDT [1236] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:21:33.002 PDT [1236] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:21:33.005 PDT [1236] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:21:33.005 PDT [1236] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:21:33.005 PDT [1236] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:21:33.007 PDT [1236] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:21:33.007 PDT [1236] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:21:33.007 PDT [1236] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:21:33.008 PDT [1236] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:21:33.008 PDT [1236] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:21:33.008 PDT [1236] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:21:33.012 PDT [1236] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:21:33.012 PDT [1236] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:21:33.012 PDT [1236] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:22:46.657 PDT [1302] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:22:46.657 PDT [1302] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:22:46.657 PDT [1302] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:22:46.657 PDT [1301] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:22:46.657 PDT [1301] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:22:46.657 PDT [1301] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:22:46.660 PDT [1302] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:22:46.660 PDT [1302] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:22:46.660 PDT [1302] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:22:46.664 PDT [1301] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:22:46.664 PDT [1301] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:22:46.664 PDT [1301] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:22:46.665 PDT [1302] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:22:46.665 PDT [1302] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:22:46.665 PDT [1302] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:22:46.666 PDT [1301] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:22:46.666 PDT [1301] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:22:46.666 PDT [1301] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:22:46.667 PDT [1302] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:22:46.667 PDT [1302] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:22:46.667 PDT [1302] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:22:46.672 PDT [1302] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:22:46.672 PDT [1302] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:22:46.672 PDT [1302] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:22:46.675 PDT [1301] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:22:46.675 PDT [1301] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:22:46.675 PDT [1301] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:22:46.681 PDT [1301] ERROR:  duplicate key value violates unique constraint "PairingCodes_user_id_key"
+2025-08-28 12:22:46.681 PDT [1301] DETAIL:  Key (user_id)=(1) already exists.
+2025-08-28 12:22:46.681 PDT [1301] STATEMENT:  INSERT INTO "PairingCodes" ("id","code","user_id","expires_at","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5) RETURNING "id","code","user_id","expires_at","createdAt","updatedAt";
+2025-08-28 12:50:46.488 PDT [6811] ERROR:  column "pairing_code" of relation "Users" does not exist at character 20
+2025-08-28 12:50:46.488 PDT [6811] STATEMENT:  UPDATE "Users" SET "pairing_code"=$1,"pairing_code_expires_at"=$2,"updatedAt"=$3 WHERE "id" = $4
+2025-08-28 12:50:46.488 PDT [6810] ERROR:  column "pairing_code" of relation "Users" does not exist at character 20
+2025-08-28 12:50:46.488 PDT [6810] STATEMENT:  UPDATE "Users" SET "pairing_code"=$1,"pairing_code_expires_at"=$2,"updatedAt"=$3 WHERE "id" = $4
