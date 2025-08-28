@@ -7,7 +7,8 @@ const mailLetter = async (req, res) => {
     let { content } = req.body;
     content = content.trim();
     const senderID = req.user.id;
-    const recipientID = 1; //change to paired partner later
+    const currUser = await User.findByPk(req.user.id);
+    const recipientID = currUser.partner_id;
 
     //validate user input
     if (!content || typeof content !== "string" || !content.trim()) {

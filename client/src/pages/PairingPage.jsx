@@ -8,6 +8,7 @@ function PairingPage() {
   const [code, setCode] = useState('');
   const [expiresAt, setExpiresAt] = useState('');
   const [timeLeft, setTimeLeft] = useState('');
+  const [enteredCode, setEnteredCode] = useState('');
   const token = localStorage.getItem("token");
 
   const fetchCode = async () => {
@@ -53,6 +54,33 @@ function PairingPage() {
     return () => clearInterval(interval);
   }, [expiresAt]);
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError('');
+    try {
+      const response = await fetch(`${API_URL}/pairing-code/pair`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify({ enteredCode }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log(`Paired with ${data.partnerUsername}!`);
+        navigate('/');
+      } else {
+        console.error('Pairing failed:', data.error);
+        setError(data.error);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+    }
+  };
+
   return (
     <div>   
       {error && <p>{error}</p>}
@@ -62,11 +90,20 @@ function PairingPage() {
       <h3>{code}</h3>
       <p>
         {timeLeft === 'expired' ? 
-          "This code has expired." : 
+          "This code has expired. Please refresh and generate a new code." : 
           `This code expires in ${timeLeft}.`
         }
       </p>
 
+      <form onSubmit={handleSubmit}>
+        <input
+          type="tel"
+          maxLength={6}
+          value={enteredCode}
+          onChange={(e) => setEnteredCode(e.target.value)}
+        />
+        <button type="submit">Pair</button>
+      </form>
     </div>
   );
 
