@@ -7,6 +7,7 @@ function PairingPage() {
   const [error, setError] = useState('');
   const [code, setCode] = useState('');
   const [expiresAt, setExpiresAt] = useState('');
+  const [timeLeft, setTimeLeft] = useState('');
   const token = localStorage.getItem("token");
 
   const fetchCode = async () => {
@@ -32,6 +33,26 @@ function PairingPage() {
     fetchCode();
   }, []);
 
+  useEffect(() => {
+    if (!expiresAt) return;
+
+    const interval = setInterval(() => {
+      const now = Date.now();
+      const diffMs = new Date(expiresAt).getTime() - now;
+
+      if (diffMs <= 0) {
+        setTimeLeft("expired");
+        clearInterval(interval);
+      } else {
+        const minutes = Math.floor(diffMs / 60000);
+        const seconds = Math.floor((diffMs % 60000) / 1000);
+        setTimeLeft(`${minutes}m ${seconds}s`);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [expiresAt]);
+
   return (
     <div>   
       {error && <p>{error}</p>}
@@ -39,7 +60,12 @@ function PairingPage() {
       <p>Enter your partner's pairing code or have your partner enter yours to begin using the app!</p>
       <h3>Your Pairing Code:</h3>
       <h3>{code}</h3>
-      <p>This code expires in {expiresAt}</p>
+      <p>
+        {timeLeft === 'expired' ? 
+          "This code has expired." : 
+          `This code expires in ${timeLeft}.`
+        }
+      </p>
 
     </div>
   );
