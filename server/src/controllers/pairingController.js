@@ -1,6 +1,7 @@
 const crypto = require("crypto"); 
 const User = require("../models/User");
 const { Op } = require("sequelize");
+const sequelize = require('../db');
 
 const generateCode = async (req, res) => {
   try {

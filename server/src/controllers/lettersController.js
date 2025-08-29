@@ -1,4 +1,5 @@
 const Letter = require('../models/Letter');
+const User = require('../models/User');
 
 //for POST letter
 const mailLetter = async (req, res) => {
