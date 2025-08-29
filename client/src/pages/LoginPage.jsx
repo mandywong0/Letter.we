@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from "react";
 import { API_URL } from "../config";
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from "react-router-dom";
+import { AppContext } from "../context/AppContext";
 
 function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const { setPartner } = useContext(AppContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -29,6 +31,7 @@ function LoginPage() {
         // Redirect to home IF paired if not, redirect to pairing page
         if (data.user.partner_id) {
           navigate('/');
+          setPartner(data.user.partner_id);
         } else {
           navigate('/pairing');
         }

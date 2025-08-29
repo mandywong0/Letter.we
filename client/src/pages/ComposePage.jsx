@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { API_URL } from "../config";
 import { useNavigate, Link } from 'react-router-dom';
+import { AppContext } from "../context/AppContext";
 
 function ComposePage() {
   const navigate = useNavigate();
   const [content, setContent] = useState('');
   const token = localStorage.getItem('token');
+  const { partner } = useContext(AppContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,7 +40,7 @@ function ComposePage() {
   return (
     <div>
       <h2>Compose a letter</h2>
-      <p>Dear {},</p>
+      <p>Dear {partner},</p>
       <form onSubmit={handleSubmit}>
         <textarea 
           value={content} 
