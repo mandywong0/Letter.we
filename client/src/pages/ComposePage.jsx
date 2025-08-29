@@ -45,8 +45,8 @@ function ComposePage() {
           onChange={e => setContent(e.target.value)} />
         <button type="submit">Mail</button>
       </form>
+      <Link to="/"><button>Back</button></Link>
     </div>
-
   );
 }
 
