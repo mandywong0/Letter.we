@@ -40,7 +40,11 @@ function ComposePage() {
   return (
     <div>
       <h2>Compose a letter</h2>
-      <p>Dear {partner},</p>
+      {partner ? (
+        <p>To {partner.username}:</p>
+      ) : (
+        <p>No partner yet</p>
+      )}
       <form onSubmit={handleSubmit}>
         <textarea 
           value={content} 

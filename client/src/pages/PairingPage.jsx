@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { API_URL } from "../config";
 import { useNavigate, Link } from "react-router-dom";
+import { useUser } from "../context/AppContext";
 
 function PairingPage() {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ function PairingPage() {
   const [timeLeft, setTimeLeft] = useState('');
   const [enteredCode, setEnteredCode] = useState('');
   const token = localStorage.getItem("token");
+  const { fetchCurrentUser } = useUser();
 
   const fetchCode = async () => {
     try {
@@ -71,6 +73,7 @@ function PairingPage() {
 
       if (response.ok) {
         console.log(`Paired with ${data.partnerUsername}!`);
+        await fetchCurrentUser();
         navigate('/');
       } else {
         console.error('Pairing failed:', data.error);

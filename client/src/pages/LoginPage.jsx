@@ -1,23 +1,23 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { API_URL } from "../config";
 import { useNavigate, Link } from "react-router-dom";
-import { AppContext } from "../context/AppContext";
+import { useUser } from "../context/AppContext";
 
 function LoginPage() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const { setPartner } = useContext(AppContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { fetchCurrentUser } = useUser();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError('');
+    setError("");
     try {
       const response = await fetch(`${API_URL}/login`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
       });
@@ -25,23 +25,23 @@ function LoginPage() {
       const data = await response.json();
 
       if (response.ok) {
-        console.log('Login successful!', data);
+        console.log("Login successful!", data);
         // Save token to localStorage
-        localStorage.setItem('token', data.token);
+        localStorage.setItem("token", data.token);
         // Redirect to home IF paired if not, redirect to pairing page
         if (data.user.partner_id) {
-          navigate('/');
-          setPartner(data.user.partner_id);
+          await fetchCurrentUser();
+          navigate("/");
         } else {
-          navigate('/pairing');
+          navigate("/pairing");
         }
       } else {
-        console.error('Login failed:', data.error);
+        console.error("Login failed:", data.error);
         setError(data.error);
       }
 
     } catch (error) {
-      console.error('Network error:', error);
+      console.error("Network error:", error);
     }
   };
 
@@ -51,18 +51,22 @@ function LoginPage() {
       {error && <p>{error}</p>}
 
       <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="flex flex-col gap-4 mb-4">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="flex-1"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="flex-1"
+          />
+        </div>
         <button type="submit">Log in</button>
       </form>
       <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
