@@ -1,9 +1,7 @@
 const dotenv = require("dotenv");
 
-dotenv.config({ path: '.env' });
-
-if (process.env.NODE_ENV === 'production') {
-  dotenv.config({ path: '.env.production', override: true }); 
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: '.env' });
 }
 
 const express = require("express");
