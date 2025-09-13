@@ -16,7 +16,11 @@ const promptsRoutes = require("./src/routes/promptsRoutes");
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors()); //add restriction after setting up frontend
+app.use(cors({
+  origin: "https://letter-we.onrender.com",
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
