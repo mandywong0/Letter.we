@@ -1,0 +1,11 @@
+.loginsignup-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.loginsignup-page form {
+  width: 300px;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL } from "../config";
 import { useNavigate, Link } from 'react-router-dom';
+import "./InboxPage.css";
 
 function InboxPage() {
   const navigate = useNavigate();
@@ -31,7 +32,9 @@ function InboxPage() {
     <div>
       <h1>Inbox</h1>
       {letters[0] && letters[0].sent_at.split('T')[0] === today ? (
-        <p>{letters[0].content}</p>
+        <div className="letter">
+          <p>{letters[0].content}</p>
+        </div>
       ) : (
         <p>No letters for today yet.</p>
       )}

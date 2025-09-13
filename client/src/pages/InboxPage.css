@@ -1,0 +1,19 @@
+.letter {
+  background-color: #fdfaf3;
+  color: black;
+  background-image: repeating-linear-gradient(
+    to bottom,   
+    #fdfaf3,     
+    #fdfaf3 27px,
+    #c3d1e6 28px 
+  );
+  width: 100%;
+  min-height: 300px;
+
+  /* typography */
+  font-family: 'Courier New'; /* handwriting-like */
+  font-size: 18px;
+  line-height: 30px; /* matches the gradient spacing */
+  
+  text-align: left;
+}

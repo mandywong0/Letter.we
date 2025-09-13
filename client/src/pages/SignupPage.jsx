@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { API_URL } from "../config";
 import { useNavigate, Link } from 'react-router-dom';
+import "./LoginSignup.css";
 
 function SignupPage() {
   const navigate = useNavigate();
@@ -42,10 +43,9 @@ function SignupPage() {
   };
 
   return (
-    <div>
-      <h1>Create a new account</h1>
-
+    <div class="loginsignup-page">
       {error && <p>{error}</p>}
+      <h2>Create a new account</h2>
 
       <form onSubmit={handleSubmit}>
         <input

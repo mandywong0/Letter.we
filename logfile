@@ -89,3 +89,4 @@
 2025-08-28 12:50:46.488 PDT [6811] STATEMENT:  UPDATE "Users" SET "pairing_code"=$1,"pairing_code_expires_at"=$2,"updatedAt"=$3 WHERE "id" = $4
 2025-08-28 12:50:46.488 PDT [6810] ERROR:  column "pairing_code" of relation "Users" does not exist at character 20
 2025-08-28 12:50:46.488 PDT [6810] STATEMENT:  UPDATE "Users" SET "pairing_code"=$1,"pairing_code_expires_at"=$2,"updatedAt"=$3 WHERE "id" = $4
+2025-09-13 10:23:16.797 PDT [13281] FATAL:  database "version" does not exist

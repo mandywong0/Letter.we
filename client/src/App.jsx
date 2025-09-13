@@ -26,7 +26,7 @@ function App() {
     <Routes>
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/" element={<ProtectedRoute><PairingPage /></ProtectedRoute>}/>
+      <Route path="/pairing" element={<ProtectedRoute><PairingPage /></ProtectedRoute>}/>
       <Route path="/" element={<ProtectedRoute><HomePage /></ProtectedRoute>}/>
       <Route path="/compose" element={<ProtectedRoute><ComposePage /></ProtectedRoute>}/>
       <Route path="/inbox" element={<ProtectedRoute><InboxPage /></ProtectedRoute>}/>

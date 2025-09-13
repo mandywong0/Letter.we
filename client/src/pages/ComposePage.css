@@ -1,0 +1,83 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+textarea {
+  background-color: #fdfaf3;
+  color: black;
+  background-image: repeating-linear-gradient(
+    to bottom,   
+    #fdfaf3,     
+    #fdfaf3 30px,
+    #c3d1e6 31px 
+  );
+  width: 100%;
+  min-width: 1000px;
+  min-height: 461px;
+  resize: none;
+
+  /* typography */
+  font-family: 'Courier New'; /* handwriting-like */
+  font-size: 24px;
+  line-height: 31px; /* matches the gradient spacing */
+
+}
+
+.back-button {
+  position: fixed;
+  top: 1rem;    
+  left: 1rem;
+  background-color: transparent;
+  color: black;
+  border: none;
+}
+
+.back-button:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+
+#mail-button {
+  width: 315px;
+  height: 45px;
+
+  position: fixed;
+  left: 50%;                
+  transform: translateX(-50%);
+  bottom: 7%;
+
+  background-color: var(--color-primary);
+}
+
+.signature-line {
+  text-align: left;
+  font-size: 24px;
+  font-family: "Courier New";
+}
+
+.signature-line.username-display {
+  margin-top: -8px;
+}
+
+img {
+  position: fixed;
+  width: 210px;
+  height: 210px;
+  top: 0.2rem;    
+  right: 1.5rem;
+}
+
+#stamp-slot {
+  width: 105px;
+  height: 105px;
+
+  border: 1px solid black;
+  
+  margin-left: auto;   
+  margin-right: -3.5px;
+  margin-bottom: -60px;
+  margin-top: -50px;
+}

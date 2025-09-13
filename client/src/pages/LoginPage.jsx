@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { API_URL } from "../config";
 import { useNavigate, Link } from "react-router-dom";
 import { useUser } from "../context/AppContext";
+import "./LoginSignup.css";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -46,25 +47,23 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      
+    <div class="loginsignup-page">
       {error && <p>{error}</p>}
+      <h2>Log into Letter.we</h2>
 
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-4 mb-4">
+        <div>
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1"
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="flex-1"
           />
         </div>
         <button type="submit">Log in</button>

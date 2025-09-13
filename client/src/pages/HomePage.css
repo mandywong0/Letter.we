@@ -1,0 +1,28 @@
+#inbox-button {
+  place-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  background-image: url("/inbox.png");
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+}
+
+#inbox-button:hover {
+  border-color: transparent;
+  background-image: url("/inbox-with-mail.png");
+  width: 365px;
+  height: 303px;
+  top: 49.2%;
+  left: 46.96%;
+}
+
+#compose-button {
+  position: fixed;
+  bottom: 20px;      
+  right: 20px; 
+}
