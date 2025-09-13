@@ -9,10 +9,11 @@ import PairingPage from './pages/PairingPage';
 import HomePage from './pages/HomePage';
 import ComposePage from './pages/ComposePage';
 import InboxPage from './pages/InboxPage';
+import { API_URL } from "./config";
 
 function App() {
   useEffect(() => {
-    axios.get("http://localhost:4000/")
+    axios.get(`${API_URL}/`)
       .then(response => {
         console.log("Backend response:", response.data);
       })
