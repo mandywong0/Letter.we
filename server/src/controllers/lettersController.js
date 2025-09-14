@@ -1,5 +1,6 @@
-const Letter = require('../models/Letter');
-const User = require('../models/User');
+const Letter = require("../models/Letter");
+const User = require("../models/User");
+const { getIo } = require("../io");
 
 //for POST letter
 const mailLetter = async (req, res) => {
@@ -10,6 +11,7 @@ const mailLetter = async (req, res) => {
     const senderID = req.user.id;
     const currUser = await User.findByPk(req.user.id);
     const recipientID = currUser.partner_id;
+    const io = getIo();
 
     //validate user input
     if (!content || typeof content !== "string" || !content.trim()) {
@@ -25,6 +27,8 @@ const mailLetter = async (req, res) => {
         recipient_id: recipientID,
         content
     });
+    
+    io.to(`user_${recipientID}`).emit("newLetter", letter);
 
     res.status(201).json(letter);
 

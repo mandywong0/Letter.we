@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { API_URL } from "../config";
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { useUser } from "../context/AppContext";
+import { useSocket } from "../context/SocketContext";
 import "./HomePage.css";
 
 function HomePage() {
   const [dailyPrompt, setDailyPrompt] = useState("");
+  const [newLetterNotif, setNewLetterNotif] = useState(false);
   const [error, setError] = useState("");
   const token = localStorage.getItem("token");
   const { fetchCurrentUser } = useUser();
   const letterMailed = useLocation().state?.letterMailed;
+  const socket = useSocket();
 
+  //daily prompt
   const fetchPrompt = async () => {
     try {
       const response = await fetch(`${API_URL}/prompt`, {
@@ -27,10 +31,21 @@ function HomePage() {
       setError(error);
     }
   };
-
   useEffect(() => {
     fetchPrompt();
   }, []);
+
+  //detecting if any new letter is received
+  useEffect(() => {
+    if (!socket) return;
+
+    socket.on("newLetter", () => {
+      console.log("New letter received.");
+      setNewLetterNotif(true);
+    });
+
+    return () => socket.off("newLetter");
+  }, [socket]);
 
   return (
     <div>
@@ -38,7 +53,7 @@ function HomePage() {
       <h2>Prompt of the Day</h2>
       <p>{dailyPrompt}</p>
 
-      <Link to="/inbox"><button id="inbox-button"></button></Link> 
+      <Link to="/inbox"><button className={`inbox-button ${newLetterNotif ? "unread" : "default"}`}></button></Link> 
       <Link to="/compose"><button id="compose-button">Compose Letter</button></Link>
     </div>
 

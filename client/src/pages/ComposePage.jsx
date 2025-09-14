@@ -47,7 +47,7 @@ function ComposePage() {
         <img onClick={() => setStamped(true)} src="/stamp.png" alt="stamp" style={{opacity: stamped ? 1 : 0, transition: "opacity 0.5s ease-in-out", cursor: "pointer",}}/>
       </div>
       {partner ? (
-        <p class="signature-line">To {partner.username}:</p>
+        <p className="signature-line">To {partner.username}:</p>
       ) : (
         <p>No partner yet</p>
       )}
@@ -65,9 +65,9 @@ function ComposePage() {
           }}>Mail
         </button>
       </form>
-      <p class="signature-line">Sincerely,</p>
-      <p class="signature-line username-display">{user.username}</p>
-      <Link to="/"><button class="back-button">← Back</button></Link>
+      <p className="signature-line">Sincerely,</p>
+      <p className="signature-line username-display">{user?.username}</p>
+      <Link to="/"><button className="back-button">← Back</button></Link>
     </div>
   );
 }

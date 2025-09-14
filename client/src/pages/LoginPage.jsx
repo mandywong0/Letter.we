@@ -47,7 +47,7 @@ function LoginPage() {
   };
 
   return (
-    <div class="loginsignup-page">
+    <div className="loginsignup-page">
       {error && <p>{error}</p>}
       <h2>Log into Letter.we</h2>
 

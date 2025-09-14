@@ -43,7 +43,7 @@ function SignupPage() {
   };
 
   return (
-    <div class="loginsignup-page">
+    <div className="loginsignup-page">
       {error && <p>{error}</p>}
       <h2>Create a new account</h2>
 
