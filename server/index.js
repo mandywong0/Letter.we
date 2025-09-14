@@ -17,7 +17,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: "https://letter-we.onrender.com",
+  origin: ["https://letter-we.onrender.com", "http://localhost:5173"],
   credentials: true
 }));
 

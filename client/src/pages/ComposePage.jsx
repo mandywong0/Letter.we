@@ -44,8 +44,8 @@ function ComposePage() {
       <h2>Compose a letter</h2>
       <div id="stamp-slot">
         <p style={{ fontSize: "13.5px", color: "#4a7057" }}>stamp your letter here to make it ready to mail</p>
+        <img onClick={() => setStamped(true)} src="/stamp.png" alt="stamp" style={{opacity: stamped ? 1 : 0, transition: "opacity 0.5s ease-in-out", cursor: "pointer",}}/>
       </div>
-      <img onClick={() => setStamped(true)} src="/stamp.png" alt="stamp" style={{opacity: stamped ? 1 : 0, transition: "opacity 0.5s ease-in-out", cursor: "pointer",}}/>
       {partner ? (
         <p class="signature-line">To {partner.username}:</p>
       ) : (
@@ -61,7 +61,7 @@ function ComposePage() {
           style={{
             opacity: stamped ? 1 : 0,
             pointerEvents: stamped ? "auto" : "none",
-            transition: "opacity 0.5s ease-in-out",
+            transition: "opacity 3s ease-in-out",
           }}>Mail
         </button>
       </form>
