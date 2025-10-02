@@ -3,7 +3,7 @@
 Letter.we is a cozy messenger app designed to simulate the tradition of sending handwritten letters by mail. Users can write letters, add a “stamp” to make them ready to mail, and track incoming letters in real-time. It's made for any two people who want to nurture their special connection through this thoughtful, intentional practice of exchanging messages.
 
 ## Live Demo
-***Check out the live app here: ***
+**Check out the live app here:**
 Frontend: https://letter-we.onrender.com/
 Backend API: https://letter-we-backend.onrender.com
 
